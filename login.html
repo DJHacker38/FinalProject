@@ -9,9 +9,52 @@
         <script src="SupportCode/jquery.mobile.min.js"></script>
         
     </head>
-    <script>
     
-    </script>
+<script type="text/javascript" charset="UTF-8">
+
+    /*
+    function document.onkeydown(){
+        if(event.keyCode == 13){
+            loadPHP();
+        }
+    }
+    */
+    
+    function loadPHP(){ //php mysql 連線
+        var acc = document.getElementById("account").value;
+        var pw = document.getElementById("password").value;
+        $.ajax({
+            url: "return.php",
+            data: {
+                account: acc,
+                passwd: pw
+            },
+            type: "POST",
+            success: function(response){
+                str = response;
+                getFile(str);
+            }
+        }); 
+    }
+    
+    function testEnter(event){
+        if(event.keyCode == 13){
+            loadPHP();
+        }
+    }
+    
+    function getFile(str){
+        if(str=="1234"){
+            alert("帳號或密碼不正確");
+        }else{
+            var arr = JSON.parse(str);
+            alert("登入成功!!");
+            alert("您的資料"+arr.address);
+        }
+        
+    }
+
+</script>
     
     <body>
         <div data-role="page">
@@ -47,8 +90,8 @@
                 <label for="account">帳號:</label>
                 <input type="text" name="acc" id="account" value=""  />
                 <label for="password">密碼:</label>
-                <input type="text" name="pw" id="password" value=""  />
-                <a type="button">確定</a>
+                <input type="password" name="pw" id="password" value=""  onkeydown="testEnter(event)" />
+                <input type="button" onclick="loadPHP()" value="submit" />
                 
             </div>
             

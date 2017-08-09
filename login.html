@@ -24,11 +24,12 @@
         var acc = document.getElementById("account").value;
         var pw = document.getElementById("password").value;
         $.ajax({
-            url: "return.php",
+            url: "AccountReturn.php",
             data: {
                 account: acc,
                 passwd: pw
             },
+            type: "POST",
             type: "POST",
             success: function(response){
                 str = response;

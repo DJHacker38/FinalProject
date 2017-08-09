@@ -21,11 +21,5 @@
         }
     }
         
-    
-/*
-    echo "<Script>";
-    echo "getFile(".json_string.");";
-    echo "/<Script>";
-*/
-    echo $json_string;
+    echo $ret;
 ?>

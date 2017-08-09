@@ -10,6 +10,29 @@
         
     </head>
     
+    <script type="text/javascript" charset="UTF-8">
+        var acc = document.getElementById(acc);
+        function TestAccount(){
+            $.ajax({
+                url: "RegReturn.php",
+                data: {
+                    account: acc
+                },
+                type: "POST",
+                success: function(response){
+                    str = response;
+                    document.getElementById(confirm).innerHTML = str;
+                }
+            });
+        }
+        
+        function goReg(){
+            
+        
+        
+        }
+    </script>
+    
     <body>
         
         <div data-role="page">
@@ -31,19 +54,23 @@
             <div data-role="main" class="ui-content">
                 <form method="post" action="RegReturn.php">
                     
-                    <label for="Rname">帳號:</label>
-                        <input type="text" name="name" id="Rname" />
-                        <br/>
-                        <label for="Rpassword">密碼:</label>
-                        <input type="password" name="password" id="Rpassword">
-                        <br/>
-                        <label for="Repassword">重複密碼:</label>
-                        <input type="password" name="password" id="Repassword">
-                    
-                        <div style="margin-top: 20%;">
-                        <a href="#pageLogin" data-role="button" data-transition="flow" data-direction="reverse">確定</a>
-                        <a href="#pageLogin" data-role="button" data-transition="flip" data-direction="reverse">登錄</a>
-                        </div>
+                    <label for="Rname">姓名:(必填)</label>
+                    <p id="confirm"></p>
+                    <input type="text" name="name" />
+                    <label for="Rname">帳號(必填):</label>
+                    <input type="text" id="acc" name="account" onchange="TestAccount()" />
+                    <label for="password">密碼(必填):</label>
+                    <input type="password" name="password" id="password">
+                    <label for="Repassword">重複密碼(必填):</label>
+                    <input type="password" name="password" id="Repassword">
+                    <label for="phone">手機:</label>
+                    <input type="text" name="phone" />
+                    <label for="address">地址:</label>
+                    <input type="text" name="address" />
+                
+                    <div style="margin-top: 20%;">
+                    <input type="submit" value="確定">
+                    </div>
                     
 
                 </form>
@@ -60,35 +87,7 @@
             </div>
             
         </div>
-        
-    
-        <!--
-         <div data-role="navbar">
-                    <ul>
-                        <li>
-                            <a href="#" data-role="button">
-                                <img src="picture/heart.jpeg" width="80" height="80">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" data-role="button">
-                                <img src="picture/chat.png" width="80" height="80">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" data-role="button">
-                                <img src="picture/comment.jpg" width="80" height="80">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" data-role="button">
-                                <img src="picture/borrow.png" width="80" height="80">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-        -->
+ 
     </body>
     
     

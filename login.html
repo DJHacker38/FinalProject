@@ -30,7 +30,6 @@
                 passwd: pw
             },
             type: "POST",
-            type: "POST",
             success: function(response){
                 str = response;
                 getFile(str);
@@ -69,7 +68,7 @@
             <div data-role="header">
                 <a href="#mypanel">open</a>
                 <h1>無限衣櫃</h1>
-                <a href="#">set</a>
+                
             </div>
             <div data-role="header" data-theme=b>
                 <!-- 大項目的分類 -->
@@ -93,6 +92,7 @@
                 <label for="password">密碼:</label>
                 <input type="password" name="pw" id="password" value=""  onkeydown="testEnter(event)" />
                 <input type="button" onclick="loadPHP()" value="submit" />
+                <input type="button" onclick="location.href='register.html'" value="register" />
                 
             </div>
             

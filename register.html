@@ -11,6 +11,7 @@
     </head>
     
     <script type="text/javascript" charset="UTF-8">
+        //驗證帳號有無重複
         var acc = document.getElementById(acc);
         function TestAccount(){
             $.ajax({
@@ -21,16 +22,63 @@
                 type: "POST",
                 success: function(response){
                     str = response;
-                    document.getElementById(confirm).innerHTML = str;
+                    document.getElementById("confirm").innerHTML = str;
                 }
             });
         }
+        var form = $("#Rform");
         
+        //加入帳號
         function goReg(){
             
-        
-        
+            var passwd = document.getElementById("password").value;
+            
+            //驗證密碼一致
+            if(passwd != document.getElementById("Repassword").value){
+                alert("密碼不一致，請重新輸入!!");
+            }else{
+                $.ajax({
+                    url: "Register.php",
+                    data: {
+                        name: document.getElementById("name").value,
+                        account: document.getElementById("account").value,
+                        password: passwd,
+                        phone: document.getElementById("phone").value,
+                        address: document.getElementById("address").value,
+                        height: document.getElementById("height").value,
+                        weight: document.getElementById("weight").value,
+                        email: document.getElementById("email").value
+                    },
+                    type: "POST",
+                    success: function(response){
+                        str = response;
+                        alert("註冊成功!!");
+                    }
+                });  
+            }
         }
+        
+        /*
+        function loadPHP(){ //php mysql 連線
+        var acc = document.getElementById("account").value;
+        var pw = document.getElementById("password").value;
+        $.ajax({
+            url: "AccountReturn.php",
+            data: {
+                account: acc,
+                passwd: pw
+            },
+            type: "POST",
+            type: "POST",
+            success: function(response){
+                str = response;
+                getFile(str);
+            }
+        }); 
+    }
+        
+        
+        */
     </script>
     
     <body>
@@ -38,9 +86,9 @@
         <div data-role="page">
             
             <div data-role="header">
-                <a href="#mypanel">open</a>
+                <a rel="external" onclick="history.back()">back</a>
                 <h1>無限衣櫃</h1>
-                <a href="#">set</a>
+               
             </div>
 
             <div data-role="header" data-theme=c>
@@ -52,24 +100,39 @@
             </div>
             
             <div data-role="main" class="ui-content">
-                <form method="post" action="RegReturn.php">
+                <form name="Rform" id="Rform" method="post" action="Register.php">
                     
-                    <label for="Rname">姓名:(必填)</label>
+                    <label for="name">姓名:(必填)</label>
+                    
+                    <input type="text" name="name" id="name" />
+                    <label for="account">帳號(必填):</label>
                     <p id="confirm"></p>
-                    <input type="text" name="name" />
-                    <label for="Rname">帳號(必填):</label>
-                    <input type="text" id="acc" name="account" onchange="TestAccount()" />
+                    <input type="text" id="account" name="account" onchange="TestAccount()" />
                     <label for="password">密碼(必填):</label>
                     <input type="password" name="password" id="password">
                     <label for="Repassword">重複密碼(必填):</label>
                     <input type="password" name="password" id="Repassword">
                     <label for="phone">手機:</label>
-                    <input type="text" name="phone" />
+                    <input type="text" name="phone" id="phone" />
                     <label for="address">地址:</label>
-                    <input type="text" name="address" />
+                    <input type="text" name="address" id="address" />
+                    
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <label for="height">身高:</label>
+                            <input type="text" name="height" id="height" />
+                        </div>
+                        <div class="ui-block-b">
+                            <label for="weight">體重:</label>
+                            <input type="text" name="weight" id="weight" />
+                        </div>
+                    </div>
+                    
+                    <label for="address">email:</label>
+                    <input type="text" name="email" id="email" />
                 
                     <div style="margin-top: 20%;">
-                    <input type="submit" value="確定">
+                    <input type="button" value="確定" onclick="goReg()">
                     </div>
                     
 

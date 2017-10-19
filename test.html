@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+                
+        
+    </head>
+    
+    <script>
+        function tes(){
+            alert('test');
+            var str = "dddd";
+            $.ajax({
+                url: "test.php",
+                data: str,
+                type: "POST",
+                contentType: false,   // 告诉jQuery不要去這置Content-Type
+                processData: false,   // 告诉jQuery不要去處理發送的數據
+                beforeSend: function(){
+                  alert("beforeSend");
+                },
+                success: function(response){
+                    var str = response;
+                    alert("success");
+                    alert(str);
+                    
+                },
+                error: function(xhr, ajaxOptions, thrownError){
+                   alert("error:"+thrownError);
+                }
+            }); 
+        }
+    </script>
+    
+    <body>
+        <button onclick="tes()">testBtn</button>
+    </body>
+    
+    
+</html>

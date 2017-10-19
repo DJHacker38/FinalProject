@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <!--
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="SupportCode/jquery.mobile.min.css" />
+        <script src="SupportCode/jquery-latest.min.js"></script>
+        <script src="SupportCode/jquery.mobile.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" crossorigin="anonymous">
+        alert(4545);
+        </script>
+        
+       
+        
+    </head>
+    -->
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="SupportCode/jquery.mobile.min.css" />
+        <script src="SupportCode/jquery-latest.min.js"></script>
+        <script src="SupportCode/jquery.mobile.min.js"></script>
+        
+    </head>
+        
+     
+    
+    <body>
+    <script type="text/javascript" charset="UTF-8">
+        
+        /*
+        function viewFile(){
+            var f = document.getElementById("imgfile");
+            var txt = "";
+            if("files" in f){
+                if(f.files.length == 0){
+                    txt = "請選擇一個圖檔";
+                }else{
+                    var file = f.files[0];
+                    if('name' in file){
+                        txt += "名稱:" + file.name + "<br>";
+                    }
+                    if('size' in file){
+                        txt += "檔案大小:" + file.size + " bytes" + "<br>";
+                    }
+                }
+            }
+            document.getElementById("FileName").innerHTML = txt;
+        }
+        
+        function imgUpload(){
+            
+            var formData = new FormData($('#sendImg'));
+            formData.append('img',$('input[type=file]')[0].files[0]);
+            //var file = document.getElementById("imgfile");
+            //formData.append("img", file);
+            formData.append('img',$("input[name$='img']")[0].files[0]);
+            $.ajax({
+                url: "ImgUpload.php",
+                data: formData,
+                type: "POST",
+                contentType: false,   // 告诉jQuery不要去這置Content-Type
+                processData: false,   // 告诉jQuery不要去處理發送的數據
+                beforeSend: function(){
+                  alert("beforeSend");
+                },
+                success: function(response){
+                    var str = response;
+                    alert("success");
+                    //alert(file);
+                    alert(str);
+                    alert("end");
+                },
+                error: function(xhr, ajaxOptions, thrownError){
+                   alert("error:"+thrownError);
+                }
+            }); 
+        }
+        
+        */
+        
+        function test(){
+            alert("切換!!");
+            window.location = "login.html";
+        }
+        
+        
+    </script>
+        <div data-role="page">
+            
+           
+            
+            <!--FileUpload!-->
+            <div data-role="main" class="ui-content">
+                
+                <form id="sendImg" method="post" enctype="multipart/form-data" name="fileinfo">
+                    Select image to upload:
+                    <input type="file" name="img" id="imgfile">
+                    <input type="button" value="Upload Image" name="submitBtn" onclick="imgUpload()">
+                    <input type="button" onclick="test()">
+                    
+                </form>
+            </div>
+            <div>
+                <embed id="UploadedFile" src="" width="390px" height="160px">
+            </div>
+
+            
+            
+        </div>
+
+    </body>
+    
+    
+</html>

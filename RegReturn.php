@@ -1,25 +1,43 @@
 <?php
     header("Content-Type:text/html; charset=utf-8");
 
-    $a = $_POST["account"];
+    $acc = $_POST["account"];
     
-    $con = mysqli_connect('localhost','hacker','jimpig38');
 
-    mysqli_query($con,"set character set utf8");
-    mysql_query("SET CHARACTER_SET_database= utf8",$con);
-    mysql_query("SET CHARACTER_SET_CLIENT= utf8",$con);
-    mysql_query("SET CHARACTER_SET_RESULTS= utf8",$con);
+    $servername = "localhost";
+    $username = "hacker";
+    $password = "jimpig38";
+
+    $con = mysqli_connect($servername,$username,$password);
+    mysqli_set_charset($con,"utf8");
+
+
 
     mysqli_select_db($con,'wardrobe');
-    $sql = "SELECT * FROM user_id WHERE account_id = '".$a."' ";
+
+    $sql = "SELECT * FROM user_id WHERE account_id = '$acc'";
     $result = mysqli_query($con,$sql);
+    //echo $result;
     $hint = "";
-    $ret = "此帳號可使用";
+    $ret = "此帳號未搜尋"."$sql";
+    //echo "result:".$result;
+    if(!$result){
+        echo 'Could not run query:'.mysqli_error();
+    }
+    $f = 2;
     while($row = mysqli_fetch_array($result)){
-        if($a==$row[account]){
-            $ret = "此帳號已存在";
+        $f = 1;
+        if($acc==$row[account_id]){
+            echo "此帳號已註冊";
+            $f = 0;
+            exit();
+        }else{
+            
         }
     }
-        
-    echo $ret;
+    if($f==1){
+        echo "此帳號可使用";
+    }else if(f==2){
+        echo $ret;
+    }
 ?>

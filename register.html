@@ -12,23 +12,35 @@
     
     <script type="text/javascript" charset="UTF-8">
         //驗證帳號有無重複
-        var acc = document.getElementById(acc);
+        
+        
+        var acc = document.getElementById('account').value;
+        
+        
         function TestAccount(){
+            alert();
             $.ajax({
                 url: "RegReturn.php",
                 data: {
-                    account: acc
-                },
+			account: document.getElementById("account").value
+		},
                 type: "POST",
                 success: function(response){
-                    str = response;
+                    var str = response;
                     document.getElementById("confirm").innerHTML = str;
+                },
+                error: function(response){
+                    var str = response;
+       		    
+	            document.getElementById("confirm").innerHTML = str;
                 }
             });
         }
-        var form = $("#Rform");
+        
         
         //加入帳號
+        
+        
         function goReg(){
             
             var passwd = document.getElementById("password").value;
@@ -37,22 +49,30 @@
             if(passwd != document.getElementById("Repassword").value){
                 alert("密碼不一致，請重新輸入!!");
             }else{
+            
+                var form = $("#Rform");
+                
                 $.ajax({
                     url: "Register.php",
                     data: {
                         name: document.getElementById("name").value,
                         account: document.getElementById("account").value,
-                        password: passwd,
+                        password: document.getElementById("password").value,
                         phone: document.getElementById("phone").value,
                         address: document.getElementById("address").value,
                         height: document.getElementById("height").value,
                         weight: document.getElementById("weight").value,
                         email: document.getElementById("email").value
                     },
-                    type: "POST",
+                    type: "POST", 
                     success: function(response){
-                        str = response;
-                        alert("註冊成功!!");
+                        var str = response;
+                       // alert("註冊成功!!");
+                        alert(str);
+                        window.location = "login.html";
+                    },
+                    error: function(){
+                        alert("connect fail in ajax");
                     }
                 });  
             }
@@ -60,25 +80,25 @@
         
         /*
         function loadPHP(){ //php mysql 連線
-        var acc = document.getElementById("account").value;
-        var pw = document.getElementById("password").value;
-        $.ajax({
-            url: "AccountReturn.php",
-            data: {
-                account: acc,
-                passwd: pw
-            },
-            type: "POST",
-            type: "POST",
-            success: function(response){
-                str = response;
-                getFile(str);
-            }
-        }); 
-    }
-        
+            var acc = document.getElementById("account").value;
+            var pw = document.getElementById("password").value;
+            $.ajax({
+                url: "AccountReturn.php",
+                data: {
+                    account: acc,
+                    passwd: pw
+                },
+                type: "POST",
+                type: "POST",
+                success: function(response){
+                    str = response;
+
+                }
+            }); 
+        }
         
         */
+        
     </script>
     
     <body>
@@ -86,7 +106,7 @@
         <div data-role="page">
             
             <div data-role="header">
-                <a rel="external" onclick="history.back()">back</a>
+                <a rel="external" onclick="history.back()">返回</a>
                 <h1>無限衣櫃</h1>
                
             </div>
@@ -100,7 +120,7 @@
             </div>
             
             <div data-role="main" class="ui-content">
-                <form name="Rform" id="Rform" method="post" action="Register.php">
+                <form name="Rform" id="Rform">
                     
                     <label for="name">姓名:(必填)</label>
                     
@@ -142,7 +162,7 @@
             <div data-role="footer" data-position="fixed">
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="#">回首頁</a></li>
+                        <li><a rel="external" href="index.html">回首頁</a></li>
                         <li><a href="#">拍照</a></li>
                         <li><a href="#">設定</a></li>
                     </ul>

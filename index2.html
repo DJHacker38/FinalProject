@@ -10,10 +10,61 @@
         
     </head>
     <script>
-    
+        
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+        
+    function getUserName(userName){
+        var N = "歡迎 "+getCookie(userName);
+        if(N=="歡迎 "){
+            return;
+        }
+        alert(N);
+        document.getElementById("login").innerHTML = N ;
+    }
+        
     </script>
     
-    <body>
+    <style>
+        .ui-icon-myicon{
+            /* Make your icon fit */
+            background-size: 30px 30px;
+            background-position: center center;
+            background-repeat: no-repeat; 
+        }
+        .ui-home{
+            background-image: url("picture/icon/home.png");
+        }
+        .ui-bell{
+            background-image: url("picture/icon/bell.png");
+        }
+        .ui-camera{
+            background-image: url("picture/icon/camera.png");
+        }
+        .ui-message{
+            background-image: url("picture/icon/message.png");
+        }
+        .ui-setting{
+            background-image: url("picture/icon/setting.png");
+        }
+    
+    </style>
+    
+    
+    <body onload="getUserName('userName')">
         <div data-role="page">
             <div data-role="panel" id="mypanel">
                 
@@ -25,7 +76,7 @@
             <div data-role="header">
                 <a href="#mypanel">開啟</a>
                 <h1>無限衣櫃</h1>
-                <a id="login" class="ui-btn-right" rel="external" href="login.html" value="登入">登入</a>
+                <a id="login" class="ui-btn-right"value="user">使用者</a>
             </div>
             <div data-role="header" data-theme=b>
                 <!-- 大項目的分類 -->
@@ -123,9 +174,13 @@
             <div data-role="footer" data-position="fixed">
                 <div data-role="navbar" class="ui-body-c">
                     <ul>
-                        <li><a href="#" data-icon="grid">Summary</a></li>
-                        <li><a href="#" data-icon="star" class="ui-btn-active ui-state-persist">Favs</a></li>
-                        <li><a href="#" data-icon="gear" data-theme="e">Setup</a></li>
+                        <!-- data-icon is added for keeping icon match the footer -->
+                        <li><a href="index.html" data-icon="" class="ui-icon-myicon ui-home"></a></li>
+                        <li><a href="#" class="ui-icon-myicon ui-bell"></a></li>
+                        <li><a href="#" class="ui-icon-myicon ui-camera"></a></li>
+                        <li><a href="#" class="ui-icon-myicon ui-message"></a></li>
+                        <li><a href="#" class="ui-icon-myicon ui-setting"></a></li>
+                        
                         <!--
                         ui-btn-active：預設選取
                         ui-state-persist：確保載入page時回復選取狀態

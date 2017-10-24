@@ -49,10 +49,34 @@
         }else{
             var arr = JSON.parse(str);
             alert("登入成功!!");
-            alert("您的資料"+arr.address);
-	    window.location = "index.html";
+            //alert("您的資料"+arr.name);
+            setCookie("userName",arr.name,2);
+	    window.location = "index2.html";
         }
         
+    }
+    
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+    
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";";
     }
 
 </script>
@@ -67,41 +91,57 @@
                 -->
             </div>
             <div data-role="header">
-                <a href="#mypanel">open</a>
+                <a href="#mypanel">開啟</a>
                 <h1>無限衣櫃</h1>
                 
             </div>
+            
+            
+            <!-- 大項目的分類 -->
+            <!--
             <div data-role="header" data-theme=b>
-                <!-- 大項目的分類 -->
+                
                 <div data-role="header" data-theme=b>
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="#">Woman</a></li>
-                        <li><a href="#">Man</a></li>
-                        <li><a href="#">Kids</a></li>
+                        <li><a href="#">女裝</a></li>
+                        <li><a href="#">男裝</a></li>
+                        <li><a href="#">童裝</a></li>
                     </ul>
                 </div>
             </div>
             </div>
-            
+
+            -->
+        
             <div data-role="main" class="ui-content" data-theme=e style="text-align: center;">
                 <h1>Login</h1>
                 <img src="picture/login.jpg">
                 
-                <label for="account">帳號:</label>
+                <label for="account" align="left">帳號:</label>
                 <input type="text" name="acc" id="account" value=""  />
-                <label for="password">密碼:</label>
+                    
+                    
+                    
+                
+                
+                
+                
+                <label align="left" for="password">密碼:</label>
                 <input type="password" name="pw" id="password" value=""  onkeydown="testEnter(event)" />
-                <input type="button" onclick="loadPHP()" value="submit" />
-                <input type="button" onclick="location.href='register.html'" value="register" />
+                <input type="button" onclick="loadPHP()" value="登入" />
+                <input type="button" onclick="location.href='register.html'" value="註冊" />
                 
             </div>
             
             
             
         
-            <div data-role="footer" data-position="fixed">
-                <h1>頁尾欄</h1>
+            <div data-role="footer" data-position="fixed" class="ui-grid-solo">
+                <div class="ui-block-a">
+                    <a type="button" rel="external" href="index.html">回首頁</a>
+                </div>
+
             </div>
         </div>
     

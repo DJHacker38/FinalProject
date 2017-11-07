@@ -13,6 +13,38 @@
     
     </script>
     
+    <style>
+        .ui-icon-myicon{
+            /* Make your icon fit */
+            background-size: 30px 30px;
+            background-position: center center;
+            background-repeat: no-repeat; 
+        }
+        .ui-home{
+            background-image: url("picture/icon/home.png");
+        }
+        .ui-bell{
+            background-image: url("picture/icon/bell.png");
+        }
+        .ui-camera{
+            background-image: url("picture/icon/camera.png");
+        }
+        .ui-message{
+            background-image: url("picture/icon/message.png");
+        }
+        .ui-setting{
+            background-image: url("picture/icon/setting.png");
+        }
+        .ui-user1{
+            background-image: url("picture/icon/user1.png");
+            width: 40px;
+            height: 30px;
+            background-size: 30px 30px;
+            border:1px #000000 solid;
+        }
+    
+    </style>
+    
     <body>
         <div data-role="page">
             <div data-role="panel" id="mypanel">
@@ -123,9 +155,13 @@
             <div data-role="footer" data-position="fixed">
                 <div data-role="navbar" class="ui-body-c">
                     <ul>
-                        <li><a href="#" data-icon="grid">Summary</a></li>
-                        <li><a href="#" data-icon="star" class="ui-btn-active ui-state-persist">Favs</a></li>
-                        <li><a href="#" data-icon="gear" data-theme="e">Setup</a></li>
+                        <!-- data-icon is added for keeping icon match the footer -->
+                        <li><a href="index2.html" data-icon="" class="ui-icon-myicon ui-home"></a></li>
+                        <li><a href="#" class="ui-icon-myicon ui-bell"></a></li>
+                        <li><a href="#" class="ui-icon-myicon ui-camera"></a></li>
+                        <li><a href="#" class="ui-icon-myicon ui-message"></a></li>
+                        <li><a href="#" class="ui-icon-myicon ui-setting"></a></li>
+                        
                         <!--
                         ui-btn-active：預設選取
                         ui-state-persist：確保載入page時回復選取狀態

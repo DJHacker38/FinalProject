@@ -98,6 +98,25 @@
         }
         
         */
+        function ValidateNumber(e, pnumber){
+            if (!/^\d+[.]?\d*$/.test(pnumber))
+            {
+                if(e.value !== /^\d+[.]?\d*/.exec(e.value)){
+                    alert("請輸入數字");
+                }
+                e.value = /^\d+[.]?\d*/.exec(e.value);
+            }
+            
+            return false;
+        }
+        
+        function ValidateNumberN(e, pnumber){
+            if (!/^\d+$/.test(pnumber))
+            {
+                e.value = /^\d+/.exec(e.value);
+            }
+            return false;
+        }
         
     </script>
     
@@ -142,11 +161,11 @@
                     <div class="ui-grid-a">
                         <div class="ui-block-a">
                             <label for="height">身高:</label>
-                            <input type="text" name="height" id="height" />
+                            <input type="text" name="height" id="height" onkeyup="return ValidateNumber(this,value)"/>
                         </div>
                         <div class="ui-block-b">
                             <label for="weight">體重:</label>
-                            <input type="text" name="weight" id="weight" />
+                            <input type="text" name="weight" id="weight" onkeyup="return ValidateNumber(this,value)"/>
                         </div>
                     </div>
                     

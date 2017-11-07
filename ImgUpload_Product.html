@@ -77,6 +77,7 @@
             formData.append('img',$("input[name$='img']")[0].files[0]);
             */
             formData.append('account_id',getCookie("userID"));
+            formData.append('uploadT',"Product");
             
             $.ajax({
                 url: "ImgUpload.php",

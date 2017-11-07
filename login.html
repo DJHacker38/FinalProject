@@ -51,7 +51,9 @@
             alert("登入成功!!");
             //alert("您的資料"+arr.name);
             setCookie("userName",arr.name,2);
-	    window.location = "index2.html";
+            setCookie("userID",arr.account_id,2);
+            
+	        window.location = "index2.html";
         }
         
     }

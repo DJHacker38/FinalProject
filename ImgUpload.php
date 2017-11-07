@@ -1,7 +1,21 @@
 <?php
     
-    $uploaddir = "uploads/customer/";
-    $uploadfile = $_FILES['img']['name'];
+
+    $uploaddir = "uploads/customer/".$_POST['account_id'];
+    
+    $tin = $_FILES['img']['name'];
+    
+    
+    $uploadfile = $_POST['uploadT']."_".$_POST['account_id'];
+        
+
+    for($i=0;$i<strlen($tin);$i++){
+        if(substr($tin,$i,1)==="."){
+            $uploadfile = $uploadfile.substr($tin,$i,strlen($tin)+1);
+        }
+    }
+
+    //$uploadfile = $_FILES['img']['name'];
     echo "$uploaddir/$uploadfile";
 
     //deal with encoding problem

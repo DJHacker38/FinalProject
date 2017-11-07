@@ -41,6 +41,8 @@
     
      if($result){
          echo "註冊成功!!";
+         mkdir("uploads/customer/$name",0700);
+         echo "dir maked susscessful";
      }
 
     

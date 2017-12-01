@@ -25,6 +25,7 @@
         var pw = document.getElementById("password").value;
         $.ajax({
             url: "AccountReturn.php",
+            crossDomain: true,
             data: {
                 account: acc,
                 passwd: pw

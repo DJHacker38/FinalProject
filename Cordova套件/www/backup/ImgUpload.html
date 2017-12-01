@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <!--
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="SupportCode/jquery.mobile.min.css" />
+        <script src="SupportCode/jquery-latest.min.js"></script>
+        <script src="SupportCode/jquery.mobile.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" crossorigin="anonymous">
+        alert(4545);
+        </script>
+        
+       
+        
+    </head>
+    -->
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="SupportCode/jquery.mobile.min.css" />
+        <script src="SupportCode/jquery-latest.min.js"></script>
+        <script src="SupportCode/jquery.mobile.min.js"></script>
+        
+    </head>
+        
+     
+    
+    <body>
+    <script type="text/javascript" charset="UTF-8">
+        
+        
+        function viewFile(){
+            var f = document.getElementById("imgfile");
+            var txt = "";
+            if("files" in f){
+                if(f.files.length == 0){
+                    txt = "請選擇一個圖檔";
+                }else{
+                    var file = f.files[0];
+                    if('name' in file){
+                        txt += "名稱:" + file.name + "<br>";
+                    }
+                    if('size' in file){
+                        txt += "檔案大小:" + file.size + " bytes" + "<br>";
+                    }
+                }
+            }
+            document.getElementById("FileName").innerHTML = txt;
+        }
+        
+        
+        function imgUpload(){
+            
+            var formData = new FormData($('#sendImg'));
+            
+            //js edition
+            var file = document.getElementById("imgfile");
+            formData.append("img", file.files[0]);
+            
+            // jquery edition
+            /*
+            formData.append('img',$('input[type=file]')[0].files[0])
+            formData.append('img',$("input[name$='img']")[0].files[0]);
+            */
+            
+            $.ajax({
+                url: "ImgUpload.php",
+                data: formData,
+                type: "POST",
+                contentType: false,   // 告诉jQuery不要去這置Content-Type
+                processData: false,   // 告诉jQuery不要去處理發送的數據
+                beforeSend: function(){
+                  alert("beforeSend");
+                },
+                success: function(response){
+                    var str = response;
+                    alert("success");
+                    alert(str);
+                    
+                },
+                error: function(xhr, ajaxOptions, thrownError){
+                   alert("error:"+thrownError);
+                }
+            }); 
+        }
+        
+        
+    </script>
+        <div data-role="page">
+            
+            <div data-role="header">
+                <a href="#mypanel">open</a>
+                <h1>無限衣櫃</h1>
+                <a href="#">set</a>
+            </div>
+
+            <div data-role="header" data-theme=c>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <img src="picture/anny.jpg" width="80" height="80">
+                    </div>
+                    <div class="ui-block-b">
+                        <h1>Anny</h1>
+                    </div>
+                </div>
+            </div>
+            
+            <div data-role="header" data-theme=c>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#">我的衣櫃</a></li>
+                        <li><a href="#">收藏衣櫃</a></li>
+                        <li><a href="#">額外衣櫃</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!--FileUpload!-->
+            <div data-role="main" class="ui-content">
+                
+                <form enctype="multipart/form-data" id="sendImg">
+                    
+                    <input type="file" name="img" class="up1" id="imgfile" onchange="viewFile()">
+                    <p id="FileName"></p>
+                    <input type="button" name="submit" value="提交" class="up1" id="sub"  onclick="imgUpload()">
+                    <!--
+                    <div>
+                        <img class="preview" style="max-width: 150px; max-height: 150px;">
+                        <div class="size"></div>
+                    </div>
+                    -->
+                </form>
+            </div>
+            
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#">回首頁</a></li>
+                        <li><a href="#">拍照</a></li>
+                        <li><a href="#">設定</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+
+    </body>
+    
+    
+</html>

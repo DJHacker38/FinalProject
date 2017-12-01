@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <script src="SupportCode/jquery-latest.min.js"></script>
+        <script src="SupportCode/jquery.mobile.min.js"></script>
+        <link rel="stylesheet" href="SupportCode/jquery.mobile.min.css" />
+        
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        
+        <link rel="stylesheet" type="text/css" href="index2.css">
+        
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        
+        <script type="text/javascript" src="index2.js"></script>
+    </head>
+    
+    
+    
+    
+    
+    <body>
+        <div data-role="page">
+            <div data-role="panel" id="mypanel">
+                <h2>constructing...</h2>
+            </div>
+            <div data-role="panel" data-position="right" id="mypanel2">
+                <h2 id="hello">UserName</h2>
+                <a type="button" value="member">會員中心</a>
+                <a type="button" value="logout" onclick="logout()">登出</a>
+            </div>
+            <div data-role="header">
+                <a href="#mypanel">開啟</a>
+                <h1>無限衣櫃</h1>
+                <a href="#mypanel2" id="login" data-icon="" class="ui-icon-myicon ui-user1"></a>
+            </div>
+            <div data-role="header" data-theme=b>
+                <!-- 大項目的分類 -->
+                <div data-role="header" data-theme=b>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#">女裝</a></li>
+                        <li><a href="#">男裝</a></li>
+                        <li><a href="#">童裝</a></li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+            
+            <div data-role="content" data-theme=c>
+                <div class="ui-grid-solo">
+                    <h3>上衣</h3>
+                </div>
+                <fieldset class="ui-grid-c" data-theme=b>
+                    <div class="ui-block-a">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                    <div class="ui-block-b">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                    <div class="ui-block-c">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                    <div class="ui-block-d">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                </fieldset>
+            </div>
+            
+            <div data-role="content" data-theme=d>
+                <div class="ui-grid-solo">
+                    <h3>褲子</h3>
+                </div>
+                <fieldset class="ui-grid-c" data-theme=b>
+                    <div class="ui-block-a">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                    <div class="ui-block-b">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                    <div class="ui-block-c">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                    <div class="ui-block-d">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                </fieldset>
+            </div>
+            
+            <div data-role="content" data-theme=c>
+                <div class="ui-grid-solo">
+                    <h3>外套</h3>
+                </div>
+                <fieldset class="ui-grid-c" data-theme=b>
+                    <div class="ui-block-a">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                    <div class="ui-block-b">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                    <div class="ui-block-c">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                    <div class="ui-block-d">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                </fieldset>
+            </div>
+            
+            <div data-role="content" data-theme=d>
+                <div class="ui-grid-solo">
+                    <h3>裙子</h3>
+                </div>
+                <fieldset class="ui-grid-c" data-theme=b>
+                    <div class="ui-block-a">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                    <div class="ui-block-b">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                    <div class="ui-block-c">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                    <div class="ui-block-d">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                </fieldset>
+            </div>
+        
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar" class="ui-body-c">
+                    <ul>
+                        <!-- data-icon is added for keeping icon match the footer -->
+                        <li><a href="index2.html" data-icon="" class="ui-icon-myicon ui-home"></a></li>
+                        <li><a href="#" class="ui-icon-myicon ui-bell"></a></li>
+                        <li><a href="ImgUpload_Product.html" rel="external" class="ui-icon-myicon ui-camera"></a></li>
+                        <li><a href="#" class="ui-icon-myicon ui-message"></a></li>
+                        <li><a href="#" class="ui-icon-myicon ui-setting"></a></li>
+                        
+                        <!--
+                        <a id="login" class="ui-btn-right" rel="external" href="login.html" value="登入">登入</a>
+                        ui-btn-active：預設選取
+                        ui-state-persist：確保載入page時回復選取狀態
+                        -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+    </body>
+    
+</html>

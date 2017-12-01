@@ -1,0 +1,1 @@
+[1201/070154.473:ERROR:process_info.cc(396)] NtQuerySystemInformation SystemExtendedHandleInformation: 指定的資訊記錄長度與請求的資訊等級長度不符合。 (0xc0000004)

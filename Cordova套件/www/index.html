@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="SupportCode/jquery.mobile.min.css" />
+        <script src="SupportCode/jquery-latest.min.js"></script>
+        <script src="SupportCode/jquery.mobile.min.js"></script>
+        
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </head>
+    <script>
+    
+    </script>
+    
+    <style>
+        .ui-icon-myicon{
+            /* Make your icon fit */
+            background-size: 30px 30px;
+            background-position: center center;
+            background-repeat: no-repeat; 
+        }
+        .ui-home{
+            background-image: url("picture/icon/home.png");
+        }
+        .ui-bell{
+            background-image: url("picture/icon/bell.png");
+        }
+        .ui-camera{
+            background-image: url("picture/icon/camera.png");
+        }
+        .ui-message{
+            background-image: url("picture/icon/message.png");
+        }
+        .ui-setting{
+            background-image: url("picture/icon/setting.png");
+        }
+        .ui-user1{
+            background-image: url("picture/icon/user1.png");
+            width: 40px;
+            height: 30px;
+            background-size: 30px 30px;
+            border:1px #000000 solid;
+        }
+    
+    </style>
+    
+    <body>
+        <div data-role="page">
+            <div data-role="panel" id="mypanel">
+                
+                <!--    側邊搜尋功能
+                <h4>搜尋</h4>
+                <input type="text" name="search-mini" id="search-mini" value="" data-mini="true" />
+                -->
+            </div>
+            <div data-role="header">
+                <a href="#mypanel">開啟</a>
+                <h1>無限衣櫃</h1>
+                <a id="login" class="ui-btn-right" rel="external" href="login.html" value="登入">登入</a>
+            </div>
+            <div data-role="header" data-theme=b>
+                <!-- 大項目的分類 -->
+                <div data-role="header" data-theme=b>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#">女裝</a></li>
+                        <li><a href="#">男裝</a></li>
+                        <li><a href="#">童裝</a></li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+            
+            <div data-role="content" data-theme=c>
+                <div class="ui-grid-solo">
+                    <h3>上衣</h3>
+                </div>
+                <fieldset class="ui-grid-c" data-theme=b>
+                    <div class="ui-block-a">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                    <div class="ui-block-b">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                    <div class="ui-block-c">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                    <div class="ui-block-d">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                </fieldset>
+            </div>
+            
+            <div data-role="content" data-theme=d>
+                <div class="ui-grid-solo">
+                    <h3>褲子</h3>
+                </div>
+                <fieldset class="ui-grid-c" data-theme=b>
+                    <div class="ui-block-a">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                    <div class="ui-block-b">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                    <div class="ui-block-c">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                    <div class="ui-block-d">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                </fieldset>
+            </div>
+            
+            <div data-role="content" data-theme=c>
+                <div class="ui-grid-solo">
+                    <h3>外套</h3>
+                </div>
+                <fieldset class="ui-grid-c" data-theme=b>
+                    <div class="ui-block-a">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                    <div class="ui-block-b">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                    <div class="ui-block-c">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                    <div class="ui-block-d">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                </fieldset>
+            </div>
+            
+            <div data-role="content" data-theme=d>
+                <div class="ui-grid-solo">
+                    <h3>裙子</h3>
+                </div>
+                <fieldset class="ui-grid-c" data-theme=b>
+                    <div class="ui-block-a">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                    <div class="ui-block-b">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                    <div class="ui-block-c">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                    <div class="ui-block-d">
+                        <img src="picture/EX.png" height="40" width="40">
+                    </div>
+                </fieldset>
+            </div>
+        
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar" class="ui-body-c">
+                    <ul>
+                        <!-- data-icon is added for keeping icon match the footer -->
+                        <li><a href="index2.html" data-icon="" class="ui-icon-myicon ui-home"></a></li>
+                        <li><a href="#" class="ui-icon-myicon ui-bell"></a></li>
+                        <li><a href="#" class="ui-icon-myicon ui-camera"></a></li>
+                        <li><a href="#" class="ui-icon-myicon ui-message"></a></li>
+                        <li><a href="#" class="ui-icon-myicon ui-setting"></a></li>
+                        
+                        <!--
+                        ui-btn-active：預設選取
+                        ui-state-persist：確保載入page時回復選取狀態
+                        -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+    </body>
+    
+</html>

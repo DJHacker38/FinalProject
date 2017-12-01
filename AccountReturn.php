@@ -1,6 +1,14 @@
 <?php
     header("Content-Type:text/html; charset=utf-8");
 
+    header('Access-Control-Allow-Origin: null');
+    header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
+    
+    //header('Access-Control-Allow-Headers: X-My-Custom-Header');
+    header('Access-Control-Allow-Headers: x-requested-with');
+    //header('Access-Control-Allow-Credentials: true');
+    header('Access-Control-Max-Age: 3600');
+
     $a = $_POST["account"];
     $p = $_POST["passwd"];
     

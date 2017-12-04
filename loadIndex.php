@@ -13,18 +13,19 @@
     mysql_query("SET CHARACTER_SET_CLIENT= utf8",$con);
     mysql_query("SET CHARACTER_SET_RESULTS= utf8",$con);
     */
-
-    $mysqli = new mysqli('localhost','hacker','jimpig38','wardrobe');
-    $mysqli->set_charset("utf8");
-    $myArray = array();
-    if ($result = $mysqli->query("SELECT * FROM Product")) {
-        $tempArray = array();
-        while($row = $result->fetch_object()) {
-                $tempArray = $row;
-                array_push($myArray, $tempArray);
-            }
-        echo json_encode($myArray, JSON_UNESCAPED_UNICODE);
-    }
+    
+        $mysqli = new mysqli('localhost','hacker','jimpig38','wardrobe');
+        $mysqli->set_charset("utf8");
+        $myArray = array();
+        if ($result = $mysqli->query("SELECT * FROM Product")) {
+            $tempArray = array();
+            while($row = $result->fetch_object()) {
+                    $tempArray = $row;
+                    array_push($myArray, $tempArray);
+                }
+            echo json_encode($myArray, JSON_UNESCAPED_UNICODE);
+        }
+    
 
     $result->close();
     $mysqli->close();

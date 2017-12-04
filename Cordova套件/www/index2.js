@@ -19,7 +19,11 @@ window.onload = function(){
         
     function getUserName(userName){
         var N = getCookie(userName);
-        alert(userName);
+        
+        if(N==null){
+            window.location = "index.html";
+        }
+        //alert(userName);
         /*
         if(N==""){
             return;
@@ -28,12 +32,22 @@ window.onload = function(){
         
         
         document.getElementById("hello").innerHTML = '你好 '+N;
-        alert("edit");
+        //alert("edit");
     }
         
-    function logout(){
+    
+    document.getElementById("logout").onclick = function(){
         document.cookie = "";
         window.location = "index.html";
+    }
+    
+    document.getElementById("home").onclick = function(){
+        var N = getCookie('userName');
+        //alert(N);
+        if(N==null){
+            window.location = "index.html";
+        }
+        window.location = "index2.html";
     }
 
     

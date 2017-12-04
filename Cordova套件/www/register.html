@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="SupportCode/jquery.mobile.min.css" />
+        <script src="SupportCode/jquery-latest.min.js"></script>
+        <script src="SupportCode/jquery.mobile.min.js"></script>
+        
+        <script src="register.js"></script>
+    </head>
+    
+    
+    
+    <body>
+        
+        <div data-role="page">
+            
+            <div data-role="header">
+                <a rel="external" onclick="history.back()">返回</a>
+                <h1>無限衣櫃</h1>
+               
+            </div>
+
+            <div data-role="header" data-theme=c>
+                <div class="ui-grid-solo" style="text-align: center">   
+                    <div class="ui-block-a">
+                        <h1>註冊</h1>
+                    </div>
+                </div>
+            </div>
+            
+            <div data-role="main" class="ui-content">
+                <form name="Rform" id="Rform">
+                    
+                    <label for="name">姓名:(必填)</label>
+                    
+                    <input type="text" name="name" id="name" />
+                    <label for="account">帳號(必填):</label>
+                    <p id="confirm"></p>
+                    <input type="text" id="account" name="account" onchange="TestAccount()" />
+                    <label for="password">密碼(必填):</label>
+                    <input type="password" name="password" id="password">
+                    <label for="Repassword">再輸入一次密碼(必填):</label>
+                    <input type="password" name="password" id="Repassword">
+                    <label for="phone">手機:(必填)</label>
+                    <input type="text" name="phone" id="phone" />
+                    <label for="address">信箱:(必填)</label>
+                    <input type="text" name="address" id="address" />
+                    <label for="address">地址:</label>
+                    <input type="text" name="email" id="email" />
+                    
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <label for="height">身高:</label>
+                            <input type="text" name="height" id="height" onkeyup="return ValidateNumber(this,value)"/>
+                        </div>
+                        <div class="ui-block-b">
+                            <label for="weight">體重:</label>
+                            <input type="text" name="weight" id="weight" onkeyup="return ValidateNumber(this,value)"/>
+                        </div>
+                    </div>
+                    
+                    
+                
+                    <div style="margin-top: 20%;">
+                        <a type="button" rel="external" href="index.html">取消</a>
+                        <input type="button" value="確定" onclick="goReg()">
+                    </div>
+                    
+
+                </form>
+            </div>
+            
+            <div class="ui-grid-solo" data-role="footer" data-position="fixed">
+                <div class="ui-block-a">
+                    <a type="button" rel="external" href="index.html">回首頁</a>
+                </div>
+            </div>
+            
+        </div>
+ 
+    </body>
+    
+    
+</html>

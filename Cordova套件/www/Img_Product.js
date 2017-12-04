@@ -54,6 +54,9 @@ window.onload = function(){
         
         function imgUpload(){            
             
+            var pPrice = document.getElementById("pPrice").value;
+            var pName = document.getElementById("pName").value;
+            
             
             var account = getCookie("userID");
             
@@ -71,6 +74,8 @@ window.onload = function(){
             */
             formData.append('account_id',account);
             formData.append('uploadT','Product');
+            formData.append('pName',pName);
+            formData.append('pPrice',pPrice);
             
             $.ajax({
                 url: "http://120.108.116.176:25080/ImgUpload.php",

@@ -35,6 +35,14 @@
         $uploadfile = $uploadfile.".jpg";
     }
 
+    $servername = "localhost";
+    $username = "hacker";
+    $password = "jimpig38";
+
+    $con = mysqli_connect($servername,$username,$password);
+    mysqli_set_charset($con,"utf8");
+    mysqli_select_db($con,"wardrobe");
+
     
 
     //$uploadfile = $_FILES['img']['name'];
@@ -46,6 +54,13 @@
     if(!move_uploaded_file($_FILES['img']['tmp_name'],"$uploaddir/$newFile")){
         echo "upload data fail";
     }
+
+    $pName = $_POST['pName'];
+    $pPrice = $_POST['pPrice'];
+    $aaaaa = $uploaddir.'/'.$newFile;
+    $sql = "INSERT INTO `wardrobe`.`Product` (`ID`, `Name`, `Price`, `Address`) VALUES (NULL, '$pName', '$pPrice', '$aaaaa');";
+    echo $aaaaa;
+    $result = mysqli_query($con,$sql);
 
     //iconv("utf-8","big5",$uploadfile)
     

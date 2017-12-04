@@ -1,5 +1,5 @@
 window.onload = function(){
-    alert("login.js");
+ //   alert("login.js");
     function loadPHP(){ //php mysql 連線
         
         if (window.XMLHttpRequest){ // Mozilla, Safari, IE7+ ...
@@ -7,7 +7,7 @@ window.onload = function(){
         }
         
         
-        alert("loadphp");
+        //alert("loadphp");
         var acc = document.getElementById("account").value;
         var pw = document.getElementById("password").value;
         
@@ -42,7 +42,7 @@ window.onload = function(){
         
     }
     
-    alert(getCookie("userName"));
+    //alert(getCookie("userName"));
     
     window.testEnter = function(event){
         if(event.keyCode == 13){
@@ -64,7 +64,7 @@ window.onload = function(){
             setCookie("userName",arr.name,2);
             setCookie("userID",arr.account_id,2);
             
-            alert(getCookie('userName'));
+            //alert(getCookie('userName'));
 	        window.location = "index2.html";
         }
         

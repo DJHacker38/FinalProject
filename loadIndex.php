@@ -13,11 +13,35 @@
     mysql_query("SET CHARACTER_SET_CLIENT= utf8",$con);
     mysql_query("SET CHARACTER_SET_RESULTS= utf8",$con);
     */
-    
+
+    $add = "WHERE ";
+    $genre=-1;
+    $kind=-1;
+
+    $genre =  $_POST["genre"];
+    $kind =  $_POST["kind"];
+
+    if($genre != ""){
+       
+       $add .= "genre = ".$genre;    
+        
+       if($kind != ""){
+           $add .= " AND kind = ".$kind;
+        }
+    }else{
+        if($kind != ""){
+           $add .= "kind = ".$kind;
+        }
+    }
+        
+
+    $str = "SELECT * FROM Product ".$add;
+
+
         $mysqli = new mysqli('localhost','hacker','jimpig38','wardrobe');
         $mysqli->set_charset("utf8");
         $myArray = array();
-        if ($result = $mysqli->query("SELECT * FROM Product")) {
+        if ($result = $mysqli->query($str)) {
             $tempArray = array();
             while($row = $result->fetch_object()) {
                     $tempArray = $row;

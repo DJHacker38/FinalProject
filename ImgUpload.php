@@ -46,7 +46,7 @@
     
 
     //$uploadfile = $_FILES['img']['name'];
-    echo "$uploaddir/$uploadfile";
+    //echo "$uploaddir/$uploadfile";
 
     //deal with encoding problem
     $newFile = mb_convert_encoding($uploadfile, "UTF-8", "auto");
@@ -57,10 +57,22 @@
 
     $pName = $_POST['pName'];
     $pPrice = $_POST['pPrice'];
-    $aaaaa = $uploaddir.'/'.$newFile;
-    $sql = "INSERT INTO `wardrobe`.`Product` (`ID`, `Name`, `Price`, `Address`) VALUES (NULL, '$pName', '$pPrice', '$aaaaa');";
-    echo $aaaaa;
+/*
+    $address = $uploaddir.'/'.$newFile;
+    $gen = $_POST["genre"];
+    $sql = "INSERT INTO `wardrobe`.`Product` (`ID`, `Name`, `Price`, `Address`, `genre`) VALUES (NULL, '$pName', '$pPrice', '$address', '$gen');";
+*/
+    $gen = $_POST['genre'];
+    $kind = $_POST['kind'];
+    echo $gen;
+    $address = $uploaddir.'/'.$newFile;
+    $sql = "INSERT INTO `wardrobe`.`Product` (`ID`, `Name`, `Price`, `Address`, `genre`, `kind`) VALUES (NULL, '$pName', '$pPrice', '$address', '$gen', '$kind');";
+    //echo $address;
+
+    //echo $address;
     $result = mysqli_query($con,$sql);
+
+    
 
     //iconv("utf-8","big5",$uploadfile)
     

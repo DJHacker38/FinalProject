@@ -15,12 +15,12 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         
-        <link rel="stylesheet" type="text/css" href="index2.css">
+        <link rel="stylesheet" type="text/css" href="newcss/index2.css">
         
-        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         
-        <script type="text/javascript" src="Img_Product.js"></script>
+        <script type="text/javascript" src="newjs/Img_Product.js"></script>
     </head>
         
      
@@ -38,10 +38,10 @@
             <div data-role="header" data-theme=c>
                 <div class="ui-grid-a">
                     <div class="ui-block-a">
-                        <img src="picture/anny.jpg" width="80" height="80">
+                        <img src="picture/upload.png" width="80" height="80">
                     </div>
                     <div class="ui-block-b">
-                        <h1>Anny</h1>
+                        <h1 id="user">Anny</h1>
                     </div>
                 </div>
             </div>
@@ -63,6 +63,23 @@
                     
                     <h2>商品名稱</h2>
                     <input type="text" id="pName">
+                    
+                    <h2>商品類型</h2>
+                    <select data-icon="arrow-d" class="ui-field-contain" id="genre">
+                         <option value="0">上衣</option>
+                         <option value="1">褲子</option>
+                         <option value="2">外套</option>
+                         <option value="3">裙子</option>
+                    </select>
+                    
+                    <h2>商品定位</h2>
+                    <select data-icon="arrow-d" class="ui-field-contain" id="kind">
+                         <option value="0">男裝</option>
+                         <option value="1">女裝</option>
+                         <option value="2">童裝</option>
+                    </select>
+                    
+                    
                     <h2>商品價格</h2>
                     <input type="text" id="pPrice">
                     <h2>商品圖片</h2>

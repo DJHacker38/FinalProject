@@ -1,0 +1,28 @@
+.ui-icon-myicon{
+            /* Make your icon fit */
+            background-size: 30px 30px;
+            background-position: center center;
+            background-repeat: no-repeat; 
+        }
+        .ui-home{
+            background-image: url("../picture/icon/home.png");
+        }
+        .ui-bell{
+            background-image: url("../picture/icon/bell.png");
+        }
+        .ui-camera{
+            background-image: url("../picture/icon/camera.png");
+        }
+        .ui-message{
+            background-image: url("../picture/icon/message.png");
+        }
+        .ui-setting{
+            background-image: url("../picture/icon/setting.png");
+        }
+        .ui-user1{
+            background-image: url("../picture/icon/user1.png");
+            width: 40px;
+            height: 30px;
+            background-size: 30px 30px;
+            border:1px #000000 solid;
+        }

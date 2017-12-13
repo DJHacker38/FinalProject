@@ -1,7 +1,8 @@
 window.onload = function(){
 //alert('basic.js');
-    getUserName("userName");
-
+    //getUserName("userName");
+    
+    
     var data;
     var gen = document.getElementById("genre").name;
     var kind = document.getElementById("kind").name;
@@ -14,8 +15,14 @@ window.onload = function(){
         data = {'kind': kind};
     }
     
+    if(gen==-1||kind==-1){
+        data = {'owner': getCookie('userID')};
+        document.getElementById("name").innerHTML=getCookie('userName');
+    }
+    
     
     //gen =3;
+    
     function getCookie(cname) {
         var name = cname + "=";
         var decodedCookie = decodeURIComponent(document.cookie);
@@ -31,19 +38,14 @@ window.onload = function(){
         }
         return "";
     }
-        
+    /*
     function getUserName(userName){
         var N = getCookie(userName);
         
         if(N==null){
             window.location = "index.html";
         }
-        //alert(userName);
-        /*
-        if(N==""){
-            return;
-        }*/
-        //alert("歡迎 "+N);
+        
         
         
         document.getElementById("hello").innerHTML = '你好 '+N;
@@ -56,7 +58,7 @@ window.onload = function(){
         var expires = "expires="+ d.toUTCString();
         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     }
-    
+    */
     
     var str;
     
@@ -79,6 +81,7 @@ window.onload = function(){
         });
     
     function processJSON(data){
+        
         var jsonData = JSON.parse(data);
         //alert(jsonData[0].Name);
         var a = '<div data-role="main" class="ui-content"><div class="ui-grid-a">';
@@ -124,6 +127,16 @@ window.onload = function(){
         
         //alert("okay");
     }
+    
+    
+    var script = document.createElement('script');
+    script.onload = function () {
+        
+    };
+    script.src = "newjs/user.js";
+
+    document.head.appendChild(script);
+    
     
     //alert(str);
     

@@ -26,9 +26,8 @@
     
     function getUserName(userName){
         var N = getCookie(userName);
-        
-        if(N==null||N==""||N=="null"){
-            return;
+        if(N==null){
+            window.location = "index.html";
         }
         var login = document.getElementById("login");
         login.className += " ui-icon-myicon ui-user1";
@@ -40,24 +39,14 @@
         }
         document.getElementById("hello").innerHTML = '你好 '+N;
         var mem = document.getElementById("member");
-        
+        alert("mem");
         mem.href = "member.html";
         mem.innerHTML = '<span class="ui-btn-inner"><span class="ui-btn-text">會員中心</span></span>';
     }
     
-    function clearAllCookie() {  
-        var keys = document.cookie.match(/[^ =;]+(?=\=)/g);  
-        if(keys) {  
-            for(var i = keys.length; i--;)  
-                document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()  
-        }  
-    }  
-
-
     document.getElementById("logout").onclick = function(){
-        setCookie('userName',null);
+        document.cookie = "";
         alert("已登出");
-        
         window.location = "index.html";
     }
     

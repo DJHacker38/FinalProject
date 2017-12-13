@@ -17,9 +17,11 @@
     $add = "WHERE ";
     $genre=-1;
     $kind=-1;
+    $owner=-1;
 
     $genre =  $_POST["genre"];
     $kind =  $_POST["kind"];
+    $owner = $_POST["owner"];
 
     if($genre != ""){
        
@@ -28,10 +30,10 @@
        if($kind != ""){
            $add .= " AND kind = ".$kind;
         }
+    }else if($kind != ""){        
+        $add .= "kind = ".$kind;        
     }else{
-        if($kind != ""){
-           $add .= "kind = ".$kind;
-        }
+        $add .= "owner =".$owner;
     }
         
 

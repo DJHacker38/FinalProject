@@ -59,12 +59,12 @@ window.onload = function(){
             alert("帳號或密碼不正確");
         }else{
             var arr = JSON.parse(str);
-            alert("登入成功!!");
+            
             
             setCookie("welcome",0,1);
-            setCookie("userName",arr.name,2);
-            setCookie("userID",arr.account_id,2);
-            
+            setCookie("userName",arr.name,1);
+            setCookie("userID",arr.account_id,1);
+            alert("登入成功!!");
             //alert(getCookie('userName'));
 	        window.location = "index2.html";
         }

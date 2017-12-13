@@ -34,6 +34,7 @@
         
         $uploadfile = $uploadfile.".jpg";
     }
+    $own = $_POST['account_id'];
 
     $servername = "localhost";
     $username = "hacker";
@@ -46,7 +47,7 @@
     
 
     //$uploadfile = $_FILES['img']['name'];
-    //echo "$uploaddir/$uploadfile";
+    echo "$uploaddir/$uploadfile";
 
     //deal with encoding problem
     $newFile = mb_convert_encoding($uploadfile, "UTF-8", "auto");
@@ -57,6 +58,7 @@
 
     $pName = $_POST['pName'];
     $pPrice = $_POST['pPrice'];
+    $intro = $_POST['intro'];
 /*
     $address = $uploaddir.'/'.$newFile;
     $gen = $_POST["genre"];
@@ -64,11 +66,11 @@
 */
     $gen = $_POST['genre'];
     $kind = $_POST['kind'];
-    echo $gen;
+    //echo $gen;
     $address = $uploaddir.'/'.$newFile;
-    $sql = "INSERT INTO `wardrobe`.`Product` (`ID`, `Name`, `Price`, `Address`, `genre`, `kind`) VALUES (NULL, '$pName', '$pPrice', '$address', '$gen', '$kind');";
-    //echo $address;
-
+    $sql = "INSERT INTO `wardrobe`.`Product` (`product_id`, `owner`,`Name`, `Price`, `Address`, `intro`, `genre`, `kind`) VALUES (NULL, '$own', '$pName', '$pPrice', '$address', '$intro', '$gen', '$kind');";
+    echo $sql;
+    
     //echo $address;
     $result = mysqli_query($con,$sql);
 

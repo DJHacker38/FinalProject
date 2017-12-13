@@ -6,7 +6,7 @@ window.onload = function(){
             var n = getCookie('userName');
             if(n == "")
                 return;
-            document.getElementById('name').innerHTML = n;
+            
             document.getElementById("user").innerHTML = n;
         }
         
@@ -51,7 +51,7 @@ window.onload = function(){
             //}
             document.getElementById("FileName").innerHTML = txt;
         }
-        
+        //alert(getCookie("userID"));
         
         
         function imgUpload(){            
@@ -60,6 +60,7 @@ window.onload = function(){
             var pName = document.getElementById("pName").value;
             var gen = document.getElementById("genre").value;
             var kind = document.getElementById("kind").value;
+            var intro = document.getElementById("intro").value;
             
             var account = getCookie("userID");
             
@@ -81,6 +82,8 @@ window.onload = function(){
             formData.append('pPrice',pPrice);
             formData.append('genre',gen);
             formData.append('kind',kind);
+            formData.append('intro',intro);
+            
             
             $.ajax({
                 url: "http://120.108.116.176:25080/ImgUpload.php",
@@ -95,13 +98,21 @@ window.onload = function(){
                     var str = response;
                     alert("success");
                     alert(str);
-                    
+                    window.location = "index2.html";
                 },
                 error: function(xhr, ajaxOptions, thrownError){
                    alert("error:"+thrownError);
                 }
-            }); 
+            });
+            
+            
         }
         
-        
+        var script = document.createElement('script');
+        script.onload = function () {
+
+        };
+        script.src = "newjs/user.js";
+
+        document.head.appendChild(script);
 };

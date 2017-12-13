@@ -108,7 +108,7 @@ window.onload = function(){
         document.getElementById("mainField").addEventListener("click",function(e){
             var str = e.target.id;
             if(str!=""){
-                setCookie('item',jsonData[str].ID ,2);
+                setCookie('item',jsonData[str].product_id ,2);
                 setCookie('genre',gen,2);
                 window.location = 'items.html';
             }

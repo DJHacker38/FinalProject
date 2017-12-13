@@ -16,30 +16,16 @@ window.onload = function(){
         }
         return "";
     }
-        
-    function getUserName(userName){
-        var N = getCookie(userName);
-        
-        if(N==null){
-            window.location = "index.html";
-        }
-        //alert(userName);
-        /*
-        if(N==""){
-            return;
-        }*/
-        alert("歡迎 "+N);
-        
-        
-        document.getElementById("hello").innerHTML = '你好 '+N;
-        //alert("edit");
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     }
         
     
-    document.getElementById("logout").onclick = function(){
-        document.cookie = "";
-        window.location = "index.html";
-    }
+    
+    
     
     document.getElementById("home").onclick = function(){
         var N = getCookie('userName');
@@ -50,5 +36,15 @@ window.onload = function(){
         window.location = "index2.html";
     }
 
-    
+    function getUserName(userName){
+        var N = getCookie(userName);
+        if(N==null){
+            window.location = "index.html";
+        }
+        if(getCookie("welcome")==0){
+            alert("歡迎 "+N);
+            setCookie("welcome",1,1);
+        }
+        document.getElementById("hello").innerHTML = '你好 '+N;
+    }
 }

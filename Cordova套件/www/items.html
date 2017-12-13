@@ -5,6 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="SupportCode/jquery.mobile.min.css" />
+        <link rel="stylesheet" href="SupportCode/ui/jQuery-Mobile-Themed-DatePicker-master/jquery.ui.datepicker.mobile.css" />
         <script src="SupportCode/jquery-latest.min.js"></script>
         <script src="SupportCode/jquery.mobile.min.js"></script>
         <script src="newjs/items.js"></script>
@@ -49,8 +50,19 @@
                         <h2>評論</h2>
                     </div>
                 </div>
+                <form>
+                    <label for="intro">商品介紹:</label>
+                    <p name="intro" id="intro"></p>
+                </form>
+                <h3>預約借用時間：</h3>
+                <label for="date">自:</label>
+                <input type="date" name="date" id="date" value=""  />
+                <label for="date2">至:</label>
+                <input type="date" name="date2" id="date2" value=""  />
+                <a type="button">立即預約</a>
             </div>
 
+            <!--
             <div data-role="footer" data-position="fixed">
                 <div data-role="navbar">
                     <ul>
@@ -78,6 +90,8 @@
                 </div>
             </div>
 
+            -->
+            
             
         </div>
     </body>

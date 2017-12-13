@@ -82,6 +82,10 @@
                     
                     <h2>商品價格</h2>
                     <input type="text" id="pPrice">
+                    <form>
+                        <label for="intro">商品介紹:</label>
+                        <textarea name="intro" id="intro"></textarea>
+                    </form>
                     <h2>商品圖片</h2>
                     <input type="file" id="imgfile" accept="image/jpeg" name="img" class="up1">
                     <p id="FileName"></p>
@@ -98,8 +102,7 @@
             <div data-role="footer" data-position="fixed">
                 <div data-role="navbar">
                     <ul>
-                        <li><a rel="external" href="index.html">回首頁</a></li>
-                        <li><a href="#">拍照</a></li>
+                        <li><a rel="external" id="home">回首頁</a></li>
                         <li><a href="#">設定</a></li>
                     </ul>
                 </div>

@@ -40,16 +40,64 @@ window.onload = function(){
 
         for(var i=0 ; i<max ; i++){
             var id = getCookie('item');
-            if(jsonData[i].ID == id){
+            if(jsonData[i].product_id == id){
                 document.getElementById('clothes').innerHTML = '<img align="center" src="http://120.108.116.176:25080/'+jsonData[i].Address+'" height="500" width="500">';
                 //alert('done');
                 document.getElementById('owner').innerHTML = jsonData[i].Name;
                 document.getElementById('price').innerHTML = "價格："+jsonData[i].Price;
+                document.getElementById("intro").innerHTML = jsonData[i].intro;
             }
         }
+    }
+
+    var n = toDateFormat(new Date());
     
+    document.getElementById("date").onchange = function(){
+        var a = document.getElementById("date");
+        var b = document.getElementById("date2");
+        if(n>a.value){
+            alert("不可輸入今日之前的日期");
+            a.value = n;
+            return;
+        }
+        if(a.value>b.value && b.value!=""){
+            alert("請輸入開始租用後(包含)的日期");
+            b.value = a.value;
+        }
+    }
+    document.getElementById("date2").onchange = function(){ 
+        var a = document.getElementById("date");
+        var b = document.getElementById("date2");
+        if(n>b.value){
+            alert("不可輸入今日之前的日期");
+            a.value = n;
+            return;
+        }
+        if(a.value>b.value){
+            alert("請輸入開始租用後(包含)的日期");
+            b.value = a.value;
+        }
+        var from_date = new Date(a.value);
+        var end_date = new Date(b.value);
+
+        var time_different = (end_date - from_date) / 86400000;
+        alert(time_different);
     }
     
+    function toDateFormat(d){
+        //alert(d);
+        var str = "";
+        str += d.getFullYear();
+        str += "-";
+        str += d.getMonth()+1;
+        str += "-";
+        str += d.getDate();
+        return str;
+    }
+    
+    $( document ).bind( "mobileinit", function(){
+        $.mobile.page.prototype.options.degradeInputs.date = true;
+    });	
     //alert(getCookie('item'));
     
     

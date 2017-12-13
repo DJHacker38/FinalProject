@@ -42,7 +42,7 @@
     
      if($result){
          echo "註冊成功!!";
-         mkdir("uploads/customer/$name",0700);
+         mkdir("uploads/customer/$account",0770);
          echo "dir maked susscessful";
      }
 

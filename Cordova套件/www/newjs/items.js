@@ -1,5 +1,9 @@
 
 window.onload = function(){
+    
+    
+    
+    
     function getCookie(cname) {
         var name = cname + "=";
         var decodedCookie = decodeURIComponent(document.cookie);
@@ -17,7 +21,7 @@ window.onload = function(){
     }
     
     var gen = getCookie('genre');
-    var n;
+    
         $.ajax({
             url: "http://120.108.116.176:25080/loadIndex.php",
             crossDomain: true,
@@ -43,13 +47,18 @@ window.onload = function(){
             if(jsonData[i].product_id == id){
                 document.getElementById('clothes').innerHTML = '<img align="center" src="http://120.108.116.176:25080/'+jsonData[i].Address+'" height="500" width="500">';
                 //alert('done');
-                document.getElementById('owner').innerHTML = jsonData[i].Name;
+                document.getElementById('pName').innerHTML = jsonData[i].Name;
                 document.getElementById('price').innerHTML = "價格："+jsonData[i].Price;
                 document.getElementById("intro").innerHTML = jsonData[i].intro;
             }
         }
     }
+    
+    
+    
 
+    //日期設定
+    
     var n = toDateFormat(new Date());
     
     document.getElementById("date").onchange = function(){
@@ -98,8 +107,47 @@ window.onload = function(){
     $( document ).bind( "mobileinit", function(){
         $.mobile.page.prototype.options.degradeInputs.date = true;
     });	
-    //alert(getCookie('item'));
     
     
     
-}
+    document.getElementById('book').onclick = function(){
+        /*
+        $.ajax({
+            url: "http://120.108.116.176:25080/loadIndex.php",
+            crossDomain: true,
+            type: "POST",
+            data: {genre: gen},
+            success: function(response){
+                var str = response;
+                //alert(str);
+                processJSON(str);
+            },
+            error: function(xhr,ajaxOptions,thrownError){
+                alert(xhr.status);
+                alert(thrownError);
+            }
+        });
+        */
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //引入user.js
+    
+    var script = document.createElement('script');
+        script.onload = function () {
+            //alert();
+        };
+        script.src = "newjs/user.js";
+
+        document.head.appendChild(script);
+    
+};

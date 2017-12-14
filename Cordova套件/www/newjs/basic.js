@@ -17,7 +17,11 @@ window.onload = function(){
     
     if(gen==-1||kind==-1){
         data = {'owner': getCookie('userID')};
-        document.getElementById("name").innerHTML=getCookie('userName');
+        try{
+           document.getElementById("name").innerHTML=getCookie('userName');
+        }catch(e){
+            
+        }
     }
     
     

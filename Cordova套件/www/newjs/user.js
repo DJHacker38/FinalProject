@@ -26,7 +26,7 @@
     
     function getUserName(userName){
         var N = getCookie(userName);
-        
+        //alert(N);
         if(N==null||N==""||N=="null"){
             return;
         }
@@ -40,7 +40,7 @@
         }
         document.getElementById("hello").innerHTML = '你好 '+N;
         var mem = document.getElementById("member");
-        
+        alert("mem");
         mem.href = "member.html";
         mem.innerHTML = '<span class="ui-btn-inner"><span class="ui-btn-text">會員中心</span></span>';
     }

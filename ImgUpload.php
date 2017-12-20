@@ -16,7 +16,8 @@
         }
     }
     */
-
+    //number the upload img
+/*
     if(exif_imagetype($_FILES['img']['tmp_name']) != IMAGETYPE_JPEG){
         echo "this is not a jpeg file";
         return;
@@ -34,8 +35,34 @@
         
         $uploadfile = $uploadfile.".jpg";
     }
-    $own = $_POST['account_id'];
+*/
+    $id = $_POST['account_id'];
+        for($i=1;;$i++){
+            if(file_exists("uploads/customer/".$id."/".$uploadfile."_$i.jpg")){
+            }else{
+                //echo "uploads/customer/".$id."/".$uploadfile."_1.jpg";
+                $uploadfile = $uploadfile."_".$i;
+                break;
+            }
+        }
+        //file name
+$uploadfile = $uploadfile.".jpg";
+$newFile = mb_convert_encoding($uploadfile, "UTF-8", "auto");
 
+
+
+
+
+    //$uploadfile = $_FILES['img']['name'];
+    //echo "$uploaddir/$uploadfile";
+
+    //deal with encoding problem
+    
+
+    if(!move_uploaded_file($_FILES['img']['tmp_name'],"$uploaddir/$newFile")){
+        echo "upload data fail";
+    }
+   
     $servername = "localhost";
     $username = "hacker";
     $password = "jimpig38";
@@ -44,18 +71,9 @@
     mysqli_set_charset($con,"utf8");
     mysqli_select_db($con,"wardrobe");
 
-    
 
-    //$uploadfile = $_FILES['img']['name'];
-    echo "$uploaddir/$uploadfile";
 
-    //deal with encoding problem
-    $newFile = mb_convert_encoding($uploadfile, "UTF-8", "auto");
-
-    if(!move_uploaded_file($_FILES['img']['tmp_name'],"$uploaddir/$newFile")){
-        echo "upload data fail";
-    }
-
+    $own = $_POST['account_id'];
     $pName = $_POST['pName'];
     $pPrice = $_POST['pPrice'];
     $intro = $_POST['intro'];
@@ -69,30 +87,12 @@
     //echo $gen;
     $address = $uploaddir.'/'.$newFile;
     $sql = "INSERT INTO `wardrobe`.`Product` (`product_id`, `owner`,`Name`, `Price`, `Address`, `intro`, `genre`, `kind`) VALUES (NULL, '$own', '$pName', '$pPrice', '$address', '$intro', '$gen', '$kind');";
-    echo $sql;
+    //echo $sql;
     
     //echo $address;
     $result = mysqli_query($con,$sql);
 
+    if($result)
+    echo "圖片上傳成功";
     
-
-    //iconv("utf-8","big5",$uploadfile)
-    
-    /*
-       echo "File is valid, and was successfully uploaded.\\\\n";
-     else {
-       echo "Possible file upload attack!\\\\n";
-    }
-    */
-/*
-    if(isset($_POST["submit"])){
-        $file = $_FILES['img'];
-        echo "file get !!!!";
-        print_r($file);
-        move_uploaded_file($file[tmp_name],"upload/".file[name]);
-    }else{
-        print_r("didn't found");
-    }
-    echo "finish";
-*/
 ?>

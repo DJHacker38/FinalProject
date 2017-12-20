@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="SupportCode/jquery.mobile.min.css" />
         <link rel="stylesheet" href="newcss/index2.css" />
+        <link rel="stylesheet" href="newcss/basic.css" />
         <script src="SupportCode/jquery-latest.min.js"></script>
         <script src="SupportCode/jquery.mobile.min.js"></script>
         <script src="newjs/basic.js"></script>
@@ -20,7 +21,7 @@
         <div data-role="page">
             <div data-role="panel" data-position="right" id="mypanel2">
                 <h2 id="hello"></h2>
-                <a type="button" id="member" href="login.html" >登入</a>
+                <a type="button" id="member" rel="external" href="login.html" >登入</a>
                 <a type="button" id="logout">登出</a>
             </div>
             <div data-role="panel" id="mypanel">
@@ -50,7 +51,7 @@
             
             
             
-            
+            <!--
             <div data-role="header" data-theme=c>
                 <div data-role="navbar">
                     <ul>
@@ -60,10 +61,11 @@
                     </ul>
                 </div>
             </div>
+            -->
             
             <div data-role="content" data-theme=c>
             
-                <div id="mainField"></div>
+                <div title="mainF" id="mainField"></div>
             
             </div>
             

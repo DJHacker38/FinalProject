@@ -38,8 +38,7 @@ window.onload = function(){
                 error: function(response){
                     alert("fail connect");
                 }
-        }); 
-        
+        });
     }
     
     //alert(getCookie("userName"));
@@ -92,6 +91,16 @@ window.onload = function(){
         d.setTime(d.getTime() + (exdays*24*60*60*1000));
         var expires = "expires="+ d.toUTCString();
         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+    
+    //home button
+    document.getElementById("home").onclick = function(){
+        var N = getCookie('userName');
+        //alert(N);
+        if(N==null){
+            window.location = "index.html";
+        }
+        window.location = "index2.html";
     }
 
 }

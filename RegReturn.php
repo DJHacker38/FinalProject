@@ -3,7 +3,7 @@
     header('Access-Control-Allow-Origin: *');
 
     $acc = $_POST["account"];
-    
+    $name = $_POST["name"];
 
     $servername = "localhost";
     $username = "hacker";
@@ -12,8 +12,7 @@
     $con = mysqli_connect($servername,$username,$password);
     mysqli_set_charset($con,"utf8");
 
-
-
+    
     mysqli_select_db($con,'wardrobe');
 
     $sql = "SELECT * FROM user_id WHERE account_id = '$acc'";
@@ -32,8 +31,6 @@
             echo "此帳號已註冊";
             $f = 0;
             exit();
-        }else{
-            
         }
     }
     if($f==1){

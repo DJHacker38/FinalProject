@@ -40,9 +40,9 @@
         }
         document.getElementById("hello").innerHTML = '你好 '+N;
         var mem = document.getElementById("member");
-        alert("mem");
+        //alert("mem");
         mem.href = "member.html";
-        mem.innerHTML = '<span class="ui-btn-inner"><span class="ui-btn-text">會員中心</span></span>';
+        mem.innerHTML = '<span class="ui-btn-inner"><span class="ui-btn-text">個人頁面</span></span>';
     }
     
     function clearAllCookie() {  

@@ -1,12 +1,22 @@
 window.onload = function(){      
 
+    
+    function Arotate(filea){
+        
+    }
+    
+    
+    
+    
         setName();
 
         function setName(){
             var n = getCookie('userName');
-            if(n == "")
+            if(n==""||n=='null'){
+                alert('請先登入');
+                window.location = "login.html";
                 return;
-            
+            }
             document.getElementById("user").innerHTML = n;
         }
         
@@ -51,10 +61,14 @@ window.onload = function(){
             //}
             document.getElementById("FileName").innerHTML = txt;
         }
-        //alert(getCookie("userID"));
+
         
         
-        function imgUpload(){            
+        function imgUpload(){       
+            
+        
+            var file = $('input[type=file]')[0].files[0];
+            
             
             var pPrice = document.getElementById("pPrice").value;
             var pName = document.getElementById("pName").value;
@@ -71,8 +85,8 @@ window.onload = function(){
             //qwformData.append("img", file.files[0]);
             
             // jquery edition
-            
-            formData.append('img',$('input[type=file]')[0].files[0])
+            //var file = $('input[type=file]')[0].files[0];
+            formData.append('img',file);
             /*
             formData.append('img',$("input[name$='img']")[0].files[0]);
             */

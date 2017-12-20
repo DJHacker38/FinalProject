@@ -3,7 +3,7 @@ window.onload = function(){
     
     document.getElementById("home").onclick = function(){
         var N = getCookie('userName');
-        alert(N);
+        //alert(N);
         if(N==null){
             window.location = "index.html";
         }
@@ -19,6 +19,13 @@ window.onload = function(){
     
     document.head.appendChild(script);
     
+    //unfinsih button
+    document.getElementById('bell').onclick = function(){unfinish();}
+    document.getElementById('message').onclick = function(){unfinish();}
+    document.getElementById('setting').onclick = function(){unfinish();}
+    function unfinish(){
+        alert("此功能尚未完成");
+    }
     
     
     function clearAllCookie() {  

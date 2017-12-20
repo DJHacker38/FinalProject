@@ -34,39 +34,22 @@
             <div data-role="main" class="ui-content">
                 <form name="Rform" id="Rform">
                     
-                    <label for="name">姓名:(必填)</label>
+                    <label for="name">名稱(暱稱):</label>
                     
                     <input type="text" name="name" id="name" />
-                    <label for="account">帳號(必填):</label>
+                    <label for="account">帳號:</label>
                     <p id="confirm"></p>
-                    <input type="text" id="account" name="account" onchange="TestAccount()" />
-                    <label for="password">密碼(必填):</label>
+                    <input type="text" id="account" name="account" onchange="TestAccount(1);" />
+                    <label for="password">密碼:</label>
                     <input type="password" name="password" id="password">
-                    <label for="Repassword">再輸入一次密碼(必填):</label>
+                    <label for="Repassword">再輸入一次密碼:</label>
                     <input type="password" name="password" id="Repassword">
-                    <label for="phone">手機:(必填)</label>
-                    <input type="text" name="phone" id="phone" />
-                    <label for="address">信箱:(必填)</label>
-                    <input type="text" name="address" id="address" />
-                    <label for="address">地址:</label>
-                    <input type="text" name="email" id="email" />
-                    
-                    <div class="ui-grid-a">
-                        <div class="ui-block-a">
-                            <label for="height">身高:</label>
-                            <input type="text" name="height" id="height" onkeyup="return ValidateNumber(this,value)"/>
-                        </div>
-                        <div class="ui-block-b">
-                            <label for="weight">體重:</label>
-                            <input type="text" name="weight" id="weight" onkeyup="return ValidateNumber(this,value)"/>
-                        </div>
-                    </div>
                     
                     
                 
                     <div style="margin-top: 20%;">
                         <a type="button" rel="external" href="index.html">取消</a>
-                        <input type="button" value="確定" onclick="goReg()">
+                        <input type="button" id="submit" onclick="goReg()" value="確定">
                     </div>
                     
 

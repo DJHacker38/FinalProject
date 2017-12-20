@@ -5,6 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="SupportCode/jquery.mobile.min.css" />
+        
         <link rel="stylesheet" href="newcss/index2.css" />
         <link rel="stylesheet" href="newcss/item.css" />
         <script src="SupportCode/jquery-latest.min.js"></script>
@@ -12,13 +13,23 @@
         <script src="newjs/items.js"></script>
         
         
+        <!--
+        <script src="SupportCode2/jquery-ui-1.9.2.custom/js/jquery-ui-1.9.2.custom.min.js"></script>
+        <script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+        -->
+        
+        
     </head>
     
     <body>
+        
         <div data-role="page">
             <div data-role="panel" data-position="right" id="mypanel2">
                 <h2 id="hello"></h2>
-                <a type="button" id="member" href="login.html" >登入</a>
+                <a type="button" id="member" rel="external" href="login.html" >登入</a>
                 <a type="button" id="logout">登出</a>
             </div>
             <div data-role="panel" id="mypanel">
@@ -35,7 +46,7 @@
             <div data-role="header" data-theme=c>
                 <div class="ui-grid-solo">
                     <div class="ui-block-a">
-                        <h1 id="pName">Jane</h1>
+                        <h1 align="center" id="pName">Jane</h1>
                     </div>
                     
                 </div>
@@ -44,7 +55,7 @@
             <div data-role="content">
                 <div class="ui-grid-solo">
                     <div id="clothes" class="ui-block-a" style="text-align: center;">
-                        
+                        <img id="im" align="center" height="500" width="500">
                     </div>
                 </div>
 
@@ -73,8 +84,20 @@
                     </div>
                 </div>
                 
-              
+                <div class="ui-grid-solo" style="text-align: left;">
+                    <div class="ui-block-a">
+                        <h2>聯絡資訊:</h2>
+                        <h4 name="contact" id="contact"></h4>
+                    </div>
+                </div>
+                
+<!--                <input type="text" id="test" />-->
+                <h3>已租用時間：</h3>
+                <p id="res">無</p>
+                
+                
                 <h3>預約借用時間：</h3>
+                
                 <label for="date">自:</label>
                 <input type="date" name="date" id="date" value=""  />
                 <label for="date2">至:</label>
@@ -82,6 +105,7 @@
                 <label for="contact">聯絡方式(手機、通訊軟體...):</label>
                 <input type="text" name="contact" id="contact" value=""  />
                 <a type="button" id="book">立即預約</a>
+                
             </div>
 
             <!--
@@ -116,6 +140,7 @@
             
             
         </div>
+        
     </body>
     
             <div data-role="footer" data-position="fixed">

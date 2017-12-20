@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="SupportCode/jquery.mobile.min.css" />
+        <script src="SupportCode/jquery-latest.min.js"></script>
+        <script src="SupportCode/jquery.mobile.min.js"></script>
+        
+        <script src="newjs/updateFile.js"></script>
+    </head>
+    
+    
+    
+    <body>
+        
+        <div data-role="page">
+            
+            <div data-role="header">
+                <a rel="external" onclick="history.back()">返回</a>
+                <h1>無限衣櫃</h1>
+               
+            </div>
+
+            <div data-role="header" data-theme=c>
+                <div class="ui-grid-solo" style="text-align: center">   
+                    <div class="ui-block-a">
+                        <h1>編輯資料</h1>
+                    </div>
+                </div>
+            </div>
+            
+            <div data-role="main" class="ui-content">
+                <form name="Rform" id="Rform">
+                    
+                    <label for="name">名稱(暱稱):(必填)</label>
+                    
+                    <input type="text" name="name" id="name" />
+                    <label for="account">帳號(不可編輯):</label>
+                    <p id="confirm"></p>
+                    <input type="text" id="account" name="account" readonly>
+                    <label for="password">密碼(必填):</label>
+                    <input type="password" name="password" id="password">
+                    <label for="Repassword">再輸入一次密碼(必填):</label>
+                    <input type="password" name="password" id="Repassword">
+                    <label for="phone">手機:</label>
+                    <input type="text" name="phone" id="phone" />
+                    <label for="email">信箱:</label>
+                    <input type="text" name="email" id="email" />
+                    <label for="address">地址:</label>
+                    <input type="text" name="address" id="address" />
+                    
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <label for="height">身高:</label>
+                            <input type="text" name="height" id="height" />
+                            <!--onkeyup="return ValidateNumber(this,value)"-->
+                        </div>
+                        <div class="ui-block-b">
+                            <label for="weight">體重:</label>
+                            <input type="text" name="weight" id="weight" />
+                            <!--onkeyup="return ValidateNumber(this,value)"-->
+                        </div>
+                    </div>
+                    <label for="contact">聯絡方式(手機、通訊軟體...):</label>
+                    <input type="text" name="contact" id="contact" />
+                    
+                
+                    <div style="margin-top: 20%;">
+                        <a type="button" rel="external" href="index.html">取消</a>
+                        <input type="button" id="submit" onclick="goEdit()" value="確定">
+                    </div>
+                    
+
+                </form>
+            </div>
+            
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a rel="external" href="index2.html">回首頁</a></li>
+                        
+                        <!--<li><a href="#">設定</a></li>-->
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+ 
+    </body>
+    
+    
+</html>

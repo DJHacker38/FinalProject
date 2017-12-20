@@ -5,12 +5,14 @@
     $name = $_POST["name"]."";
     $account = $_POST["account"];
     $passwd = $_POST["password"];
+/*
     $phone = $_POST["phone"];
     $address = $_POST["address"];
     $height = $_POST["height"];
     $weight = $_POST["weight"];
     $email = $_POST["email"];
-
+    $contact = $_POST["contact"];
+*/
     // $newFile = mb_convert_encoding($_POST["name"], "UTF-8", "auto");
     
 
@@ -23,7 +25,14 @@
         echo "fila to connect mysql";
     }
     */
-
+/*
+    if($height==''){
+        $height = 0;
+    }
+    if($weight==''){
+        $weight = 0;
+    }
+*/
      //$mysqli->set_charset('utf8');
      //mysqli_query("SET NAMES 'UTF8'");
      $con = mysqli_connect($servername,$username,$password);
@@ -36,14 +45,14 @@
      mysqli_query("SET CHARACTER_SET_RESULTS= utf8",$con);
  */
      mysqli_select_db($con,"wardrobe");
-     $sql = "INSERT INTO `wardrobe`.`user_id` (`name`, `account_id`, `password`, `phonenumber`, `address`, `ImgAddress`, `high`, `weight`, `email`) VALUES ('$name', '$account', '$passwd', '$phone', '$address', 'NoneSet', '$height', '$weight', '$email');"; //改成Create語法
-     
+     $sql = "INSERT INTO `wardrobe`.`user_id` (`name`, `account_id`, `password`) VALUES ('$name', '$account', '$passwd');"; //改成Create語法
+     //echo $sql;
      $result = mysqli_query($con,$sql);
     
      if($result){
          echo "註冊成功!!";
          mkdir("uploads/customer/$account",0770);
-         echo "dir maked susscessful";
+         //echo "dir maked susscessful";
      }
 
     

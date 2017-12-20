@@ -3,7 +3,7 @@ window.onload = function(){
     //getUserName("userName");
     
     
-    var data;
+    var data={};
     var gen = document.getElementById("genre").name;
     var kind = document.getElementById("kind").name;
     
@@ -15,10 +15,12 @@ window.onload = function(){
         data = {'kind': kind};
     }
     
-    if(gen==-1||kind==-1){
+    if(gen==-1&&kind==-1){
         data = {'owner': getCookie('userID')};
+        //alert(getCookie('userID'));
         try{
-           document.getElementById("name").innerHTML=getCookie('userName');
+            document.getElementById("name").innerHTML=getCookie('userName');
+            
         }catch(e){
             
         }
@@ -66,7 +68,7 @@ window.onload = function(){
     
     var str;
     
-    
+    //alert(data.kind);
     
         $.ajax({
             url: "http://120.108.116.176:25080/loadIndex.php",
@@ -74,12 +76,14 @@ window.onload = function(){
             data: data,
             type: "POST",
             success: function(response){
+                //alert('sussess');
                 str = response;
                 //alert(str);
                 processJSON(str)
             },
             error: function(xhr,ajaxOptions,thrownError){
                 alert(xhr.status);
+                alert(ajaxOptions);
                 alert(thrownError);
             }
         });
@@ -87,10 +91,14 @@ window.onload = function(){
     function processJSON(data){
         
         var jsonData = JSON.parse(data);
+        
         //alert(jsonData[0].Name);
         var a = '<div data-role="main" class="ui-content"><div class="ui-grid-a">';
         
         var max = Object.keys(jsonData).length;
+        
+        
+        
         var z = '';
         for(var i=0 ; i<max ; i+=2){
             var b = '<div class="ui-block-a" style="text-align: center;"><a data-role="button"><img id="'+i+'"src="';
@@ -141,32 +149,93 @@ window.onload = function(){
 
     document.head.appendChild(script);
     
-    
-    //alert(str);
-    
-    /*
-    var a = '<div data-role="main" class="ui-content"><div class="ui-grid-a">';
-    
-    
+    try{
+        document.getElementById('rent').onclick = function(){
+            alert('rent');
+            var data = {owner: getCookie('userID')};
+            $.ajax({
+                url: "http://120.108.116.176:25080/loadRes.php",
+                crossDomain: true,
+                data: data,
+                type: "POST",
+                success: function(response){
+                    //alert('sussess');
+                    var str = response;
+                    alert(str);
+                    firstRent(str);
+                },
+                error: function(xhr,ajaxOptions,thrownError){
+                    alert(xhr.status);
+                    alert(ajaxOptions);
+                    alert(thrownError);
+                }
+            });
+            
+            
+
+
+
+            
+            
+        }
+    }catch(e){
         
-    
-    var b = '<div class="ui-block-a" style="text-align: center;"><a href="#" data-role="button"><img src="';
-    var b_1 = "picture/clothes/1.jpg";
-    var b_2 = '" width=50% height=50%></a><h3>';
-    var b_3 = "good looking clothes1";
-    
-    var c = '</h3></div><div class="ui-block-b" style="text-align: center;"><a href="#" data-role="button"><img src="';
-    var c_1 = 'picture/clothes/2.jpg';
-    var c_2 = '" width=50% height=50%></a><h3>';
-    var c_3 = 'good looking clothes2</h3></div>';
-
-    
-    
-    var d = '</div></div>';
-
-    var e = a+b+b_1+b_2+b_3+c+c_1+c_2+c_3+d;
-    document.getElementById("mainField").innerHTML = e;
-    */
+    }
+    function firstRent(data){
+        var jsonData = JSON.parse(data);
+        var max = Object.keys(jsonData).length;
+        
+        var fd = new FormData();
+        for(var i=0 ; i<max ; i++){
+            fd.append('product_id',jsonData[i].product_id);
+        }
+        var arr = fd.getAll('product_id');
+        alert(arr);
+        fd = new FormData();
+        
+        for(var i=0 ; i<max ; i++){
+            if(!inside(fd.getAll('product_id'),arr[i])){
+                fd.append('product_id',arr[i]);
+            }
+        }
+        arr = fd.getAll('product_id');
+        alert(arr);         //complete removing repeat
+        
+        /*
+        for(var i=0 ; i<max ; i++){
+            var str;
+            var jsondata;
+            $.ajax({
+                url: "http://120.108.116.176:25080/Test.php",
+                crossDomain: true,
+                data: {product_id: arr[i]},
+                type: "POST",
+                success: function(response){
+                    
+                    str = response;
+                    jsondata = JSON.parse(str);
+                    //alert(str);
+                },
+                error: function(xhr,ajaxOptions,thrownError){
+                    alert(xhr.status);
+                    alert(ajaxOptions);
+                    alert(thrownError);
+                }
+            });
+            fd.append('Address',jsondata[i].Address);
+        }
+        var arr = fd.getAll('Address');
+        alert(arr);
+        */    
+    }
+    function inside(arr,a){
+        for(var i=0;i<arr.length;i++){
+            if(arr[i]==a){
+                return true;
+            }
+        }
+        return false;
+    }
 };
 /*
 <div class="ui-block-b" style="text-align: center;">

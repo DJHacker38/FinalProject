@@ -15,12 +15,18 @@
     */
     $sql = "";
 
-    $product_id = $_POST['product_id'];
-    $owner = $_POST['owner'];
+    
+    $product_id = "";
+    $owner = "";
     //echo $product_id;
-    if($product_id!=""){
+    if($_POST['product_id']){
+        $product_id = $_POST['product_id'];
         $sql = "SELECT * FROM rental_date WHERE product_id = "."'$product_id'";
     }else{
+        
+    }
+    if($_POST['owner']){
+        $owner = $_POST['owner'];
         $sql = "SELECT * FROM rental_date WHERE owner = "."'$owner'";
     }
     

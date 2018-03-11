@@ -2,6 +2,28 @@
     header('Access-Control-Allow-Origin: *');
 
     $uploaddir = "uploads/customer/".$_POST['account_id'];
+
+    if($_POST['del']){
+        
+        unlink($_POST['imgAddress']);
+        
+        $servername = "localhost";
+        $username = "hacker";
+        $password = "jimpig38";
+
+        $con = mysqli_connect($servername,$username,$password);
+        mysqli_set_charset($con,"utf8");
+        mysqli_select_db($con,"wardrobe");
+        
+        $product_id = $_POST['product_id'];
+        $sql="DELETE FROM `wardrobe`.`Product` WHERE `Product`.`product_id` = $product_id";
+        
+        $result = mysqli_query($con,$sql);
+        if($result){
+            echo "商品已刪除";
+        }
+    }
+    
     
     //file moving
     $img = "";

@@ -55,9 +55,12 @@
 
 
     document.getElementById("logout").onclick = function(){
-        setCookie('userName',null);
-        alert("已登出");
+        if(confirm('確定要登出嗎?')){
+            setCookie('userName',null);
+            alert("已登出");
+            window.location = "index.html";
+        }
         
-        window.location = "index.html";
+        
     }
     

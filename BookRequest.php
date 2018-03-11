@@ -12,7 +12,7 @@
     $owner = $_POST['owner'];
     $renter = $_POST['renter'];
     $contact = $_POST['contact'];
-        
+    $address = $_POST['imgAddress'];
 
     $servername = "localhost";
     $username = "hacker";
@@ -22,7 +22,7 @@
     mysqli_set_charset($con,"utf8");
     mysqli_select_db($con,"wardrobe");
 
-    $sql = "INSERT INTO `wardrobe`.`rental_date` (`record_id`, `product_id`, `date_start`, `date_end`, `owner`, `renter`, `renter_contact`) VALUES (NULL, '$product_id', '$date1', '$date2', '$owner', '$renter', '$contact');";
+    $sql = "INSERT INTO `wardrobe`.`rental_date` (`record_id`, `product_id`, `date_start`, `date_end`, `owner`, `renter`, `renter_contact`, `imgAddress`) VALUES (NULL, '$product_id', '$date1', '$date2', '$owner', '$renter', '$contact', '$address');";
     //echo $sql;
     
     

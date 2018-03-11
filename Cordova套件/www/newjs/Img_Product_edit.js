@@ -1,6 +1,7 @@
 window.onload = function(){      
 
     var address;
+    var del = 0;
     function Arotate(filea){
         
     }
@@ -22,6 +23,36 @@ window.onload = function(){
                 alert(thrownError);
             }
         });
+    }
+    
+    document.getElementById('del').onclick = function(){
+        if(confirm("確實要刪除嗎?")){
+            var formData = new FormData();
+            var product_id = getCookie('item');
+            formData.append('product_id',product_id);
+            formData.append('imgAddress',address);
+            formData.append('del',1);
+            $.ajax({
+                url: "http://120.108.116.176:25080/ImgUpdate.php",
+                data: formData,
+                type: "POST",
+                contentType: false,   // 告诉jQuery不要去這置Content-Type
+                processData: false,   // 告诉jQuery不要去處理發送的數據
+                beforeSend: function(){
+                  //alert("beforeSend");
+                },
+                success: function(response){
+                    var str = response;
+                    alert(str);
+                    window.location = "member.html";
+                },
+                error: function(xhr, ajaxOptions, thrownError){
+                   alert("error:"+thrownError);
+                }
+            });
+        }
+        
+        
     }
     
     

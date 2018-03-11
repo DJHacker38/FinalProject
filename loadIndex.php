@@ -15,13 +15,14 @@
     */
 
     $add = "WHERE ";
-    $genre=-1;
-    $kind=-1;
-    $owner=-1;
+    $genre="";
+    $kind="";
+    $owner="";
 
     $genre =  $_POST["genre"];
     $kind =  $_POST["kind"];
     $owner = $_POST["owner"];
+
 
     if($genre != ""){
        
@@ -33,12 +34,12 @@
     }else if($kind != ""){        
         $add .= "kind = ".$kind;        
     }else{
-        $add .= "owner =".$owner;
+        $add = "WHERE owner = "."'$owner'";
     }
         
 
     $str = "SELECT * FROM Product ".$add;
-
+    //echo $str;
 
         $mysqli = new mysqli('localhost','hacker','jimpig38','wardrobe');
         $mysqli->set_charset("utf8");

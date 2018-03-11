@@ -12,21 +12,17 @@
 
     if($_POST['product_id']){
         $product_id = $_POST['product_id'];    
+        $sql = "SELECT * FROM `Product` WHERE `product_id` = ".$product_id;
     }
     if($_POST['account']){
         $account = $_POST['account'];
-    }
-    
-    
-
-
-    if($product_id!=""){
-        $sql = "SELECT * FROM `Product` WHERE `product_id` = ".$product_id;
-    }
-    if($account!=""){
         $sql = "SELECT * FROM `user_id` WHERE `account_id` = "."'$account'";
     }
     
+    
+
+
+   
 
     //echo $gen;
     

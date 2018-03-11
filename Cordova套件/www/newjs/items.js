@@ -151,13 +151,14 @@ window.onload = function(){
     //submit request
     
     document.getElementById('book').onclick = function(){
-        alert('sub');
+        
         
         var product_id = getCookie('item');
         var date1 = document.getElementById('date').value;
         var date2 = document.getElementById('date2').value;
         var renter = getCookie('userID');
-        var contact = document.getElementById('contact').value;
+        var contact = document.getElementById('contact2').value;
+        var address = document.getElementById('im').src;
         
         
         var fd = new FormData();
@@ -167,6 +168,7 @@ window.onload = function(){
         fd.append('owner',owner);
         fd.append('renter',renter);
         fd.append('contact',contact);
+        fd.append('imgAddress',address);
         
         $.ajax({
             url: "http://120.108.116.176:25080/BookRequest.php",
@@ -178,6 +180,7 @@ window.onload = function(){
             success: function(response){
                 var str = response;
                 alert(str);
+                
                 window.location = "index2.html";
             },
             error: function(xhr,ajaxOptions,thrownError){
